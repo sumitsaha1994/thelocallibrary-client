@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -6,6 +7,7 @@ app.get("/*", function (req, res) {
     console.log(req.url);
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-app.listen(9000, () => {
+console.log(process.env.PORT);
+app.listen(process.env.PORT || 9000, () => {
     console.log("Listening to port 9000");
 });
