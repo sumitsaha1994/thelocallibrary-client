@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import Loader from "../components/Loader";
 import { Modal, Button } from "react-bootstrap";
+import API_URL from "../api";
 
 const BookInstanceDetail = (props) => {
     const { id } = props.match.params;
@@ -30,7 +31,7 @@ const BookInstanceDetail = (props) => {
 
     const handleDeleteBookinstance = () => {
         setShowDialog(false);
-        fetch(`/catalog/bookinstance/delete`, {
+        fetch(`${API_URL}/catalog/bookinstance/delete`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

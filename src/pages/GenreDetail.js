@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { Link, useHistory } from "react-router-dom";
+import API_URL from "../api";
 
 import { Button, Modal } from "react-bootstrap";
 
@@ -42,7 +43,7 @@ const GenreDetail = (props) => {
 
     const handleDeleteGenre = () => {
         setShowDialog(false);
-        fetch(`/catalog/genre/delete`, {
+        fetch(`${API_URL}/catalog/genre/delete`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

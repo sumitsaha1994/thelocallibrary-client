@@ -1,5 +1,6 @@
 import React, { useEffect, Fragment, useState } from "react";
 import useFetch from "../hooks/useFetch";
+import API_URL from "../api";
 
 import { Link, useHistory } from "react-router-dom";
 import Loader from "../components/Loader";
@@ -36,7 +37,7 @@ const Bookdetail = (props) => {
 
     const handleDeleteBook = () => {
         setShowDialog(false);
-        fetch(`/catalog/book/delete`, {
+        fetch(`${API_URL}/catalog/book/delete`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

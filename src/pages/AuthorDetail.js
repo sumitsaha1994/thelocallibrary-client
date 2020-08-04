@@ -1,5 +1,6 @@
 import React, { useEffect, Fragment, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import API_URL from "../api";
 
 import useFetch from "../hooks/useFetch";
 import Loader from "../components/Loader";
@@ -36,7 +37,7 @@ const AuthorDetail = (props) => {
 
     const handleDeleteAuthor = () => {
         setShowDialog(false);
-        fetch(`/catalog/author/delete`, {
+        fetch(`${API_URL}/catalog/author/delete`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
