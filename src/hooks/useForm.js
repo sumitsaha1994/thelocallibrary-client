@@ -1,4 +1,5 @@
 import { useState } from "react";
+import API_URL from "../api";
 
 const useForm = (initialFormData, submitUrl, actionType) => {
     const [formData, setFormData] = useState(initialFormData);
@@ -32,7 +33,7 @@ const useForm = (initialFormData, submitUrl, actionType) => {
         console.log(e.target);
         console.log(formData);
         setState({ data: {}, isLoading: true });
-        fetch(submitUrl, {
+        fetch(API_URL + submitUrl, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

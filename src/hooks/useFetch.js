@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+import API_URL from "../api";
 
 const useFetch = (url, options) => {
     const [state, setState] = useState({ data: {}, isLoading: true });
     useEffect(() => {
         setState({ data: {}, isLoading: true });
-        fetch(url, options)
+        fetch(API_URL + url, options)
             .then((res) => {
                 if (!res.ok) {
                     throw Error("Error fetching data");
