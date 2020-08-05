@@ -30,8 +30,6 @@ const useForm = (initialFormData, submitUrl, actionType) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target);
-        console.log(formData);
         setState({ data: {}, isLoading: true });
         fetch(API_URL + submitUrl, {
             method: "POST",
@@ -42,7 +40,6 @@ const useForm = (initialFormData, submitUrl, actionType) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 setState({
                     ...state,
                     data,
@@ -54,7 +51,6 @@ const useForm = (initialFormData, submitUrl, actionType) => {
                 }
             })
             .catch((err) => {
-                console.error(err);
                 setState({ ...state, data: { error: err }, isLoading: false });
             });
     };

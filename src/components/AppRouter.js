@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 
@@ -15,6 +15,7 @@ import BookInstanceDetail from "../pages/BookInstanceDetail";
 import BookForm from "../pages/BookForm";
 import AuthorForm from "../pages/AuthorForm";
 import BookinstanceForm from "../pages/BookinstanceForm";
+import Page404 from "../pages/404";
 
 const AppRouter = (props) => {
     const { setToastState } = props;
@@ -25,10 +26,6 @@ const AppRouter = (props) => {
             marginBottom: "50px",
         },
     };
-
-    useEffect(() => {
-        console.log("Router rendered");
-    });
 
     return (
         <Router>
@@ -173,6 +170,11 @@ const AppRouter = (props) => {
                                 setToastState={setToastState}
                                 {...props}
                             />
+                        )}
+                    />
+                    <Route
+                        component={(props) => (
+                            <Page404 pageTitle="Page Not Found" {...props} />
                         )}
                     />
                 </Switch>

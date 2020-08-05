@@ -14,8 +14,6 @@ const useFetch = (url, options) => {
             })
             .then((res) => res.json())
             .then((data) => {
-                console.log("form fetch");
-                console.log(data);
                 setState({ data: data, isLoading: false });
             })
             .catch((err) => {

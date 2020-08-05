@@ -20,7 +20,7 @@ const AppToast = ({ toast }) => {
                     show: false,
                 }))
             }
-            delay={3000}
+            delay={5000}
             autohide
         >
             <Toast.Header>

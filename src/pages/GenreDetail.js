@@ -18,10 +18,6 @@ const GenreDetail = (props) => {
     // get genre id from route params
     const { id } = props.match.params;
 
-    useEffect(() => {
-        console.log("Genre detail rendered");
-    });
-
     const [showDialog, setShowDialog] = useState(false);
 
     // fetch genre detail
