@@ -70,11 +70,16 @@ const BookForm = (props) => {
                                 value={formData.author}
                             >
                                 <option hidden>Select author</option>
-                                {authors.map((author) => (
-                                    <option key={author.id} value={author.id}>
-                                        {author.name}
-                                    </option>
-                                ))}
+                                {authors
+                                    .sort((a, b) => (a.name > b.name ? 1 : -1))
+                                    .map((author) => (
+                                        <option
+                                            key={author.id}
+                                            value={author.id}
+                                        >
+                                            {author.name}
+                                        </option>
+                                    ))}
                             </Form.Control>
                             {!!data.error && (
                                 <Form.Text className="text-danger">

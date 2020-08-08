@@ -77,20 +77,24 @@ const AuthorDetail = (props) => {
                         <p>{author.lifespan}</p>
                         <div style={styles.booksDiv}>
                             <h4>books</h4>
-                            <dl>
-                                {authorBooks.map((book) => (
-                                    <Fragment key={book.id}>
-                                        <dt>
-                                            <Link
-                                                to={`/catalog/book/${book.id}`}
-                                            >
-                                                {book.title}
-                                            </Link>
-                                        </dt>
-                                        <dd>{book.summary}</dd>
-                                    </Fragment>
-                                ))}
-                            </dl>
+                            {authorBooks.length ? (
+                                <dl>
+                                    {authorBooks.map((book) => (
+                                        <Fragment key={book.id}>
+                                            <dt>
+                                                <Link
+                                                    to={`/catalog/book/${book.id}`}
+                                                >
+                                                    {book.title}
+                                                </Link>
+                                            </dt>
+                                            <dd>{book.summary}</dd>
+                                        </Fragment>
+                                    ))}
+                                </dl>
+                            ) : (
+                                <p>No books available</p>
+                            )}
                         </div>
                         <hr />
                         <Button
